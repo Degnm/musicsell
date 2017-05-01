@@ -1,40 +1,10 @@
-<!DOCTYPE html>
-<html lang="en-gb" dir="ltr">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Documentation layout example - UIkit documentation</title>
-    <link rel="stylesheet" href="/node_modules/uikit/dist/css/uikit.almost-flat.min.css">
-</head>
-
-<body>
-
-<div class="uk-container uk-container-center uk-margin-top uk-margin-large-bottom">
-    <nav class="uk-navbar uk-margin-large-bottom">
-        <a class="uk-navbar-brand" href="/">Brand</a>
-        <ul class="uk-navbar-nav">
-
-            {% for menu_item in main_manu %}
-                <li>
-                    <a href="{{ menu_item.path }}">{{ menu_item.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-
-    </nav>
-
-    <div class="uk-grid" data-uk-grid-margin>
-        <div class="uk-width-1-1">
-            <h1 class="uk-heading-large">Статистика</h1>
-            <p class="uk-text-large">
-                количество музыкантов на сайте: {{ author_count }}<br>
-                количество альбомов: N<br>
-                количество жанров: N<br>
-            </p>
-        </div>
-    </div>
-</div>
-
-</body>
-</html>
+{% block content %}
+    <h1 class="uk-heading-large">Статистика</h1>
+    <p class="uk-text-large">
+        <a href="/artists"> количество музыкантов на сайте: {{ author_count }}</a><br>
+        количество альбомов: {{ album_count }}<br>
+        количество жанров: {{ genre_count }}<br>
+    </p>
+{% endblock %}
